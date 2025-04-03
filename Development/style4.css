@@ -1,0 +1,242 @@
+* {
+    padding:0;
+    margin:0
+}
+header{
+    background-color:  rgb(0, 0, 0 );
+    height:80px;
+    width:100%;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+h1{
+color: #ffffff;
+position: absolute;
+left: 80px;
+top: 0;
+line-height: 80px;
+background-image:url(image/logo-white2.svg);
+background-repeat: no-repeat;
+background-position: center;
+background-size:100px;
+text-indent: -9999px;
+width:100px;
+height:80px;
+overflow:hidden
+}
+header ul{
+    position: absolute;
+    right: 0vw;
+    top: 0;
+    line-height: 80px;
+}
+header li{
+    display: inline;
+    margin-right: 4vw;
+}
+header a{
+    color: #ffffff;
+    text-decoration: none;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+header a:hover{
+    text-decoration: underline;
+}
+
+.question{
+position: relative;
+background-color: #000000;
+height: 80px;
+margin-top: 80px;
+}
+
+.question h2{
+    position:relative;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    top: 20px;
+}
+
+.faq-block{
+    padding-bottom: 25px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#faq{
+    width: auto;
+    text-align: left;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 30px;
+    margin-top: 10vh;
+}
+
+label{
+    padding: 5px 20px;
+    position: relative;
+    z-index: 20;
+    display: block;
+    height: 40px;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 10px;
+    line-height: 40px;
+    font-size: 16px;
+    background-color: #00befd;
+}
+
+label:hover{
+    background-color: #0832a8;
+}
+
+input:checked + label,
+input:checked + labe:hover{
+    background-color: #0832a8;
+    color: #ffffff;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+}
+
+input{
+    display: none;
+}
+
+article{
+    background-color:#c1ecff;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    margin-top: -2px;
+    overflow: hidden;
+    height: 0;
+    position: relative;
+    z-index: 10;
+    transition: height 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+p{
+    color: #000000;
+    line-height: 23px;
+    font-size: 16px;
+    padding: 20px;
+}
+
+input:checked ~ article{
+    transition: height 0.3s ease;
+}
+
+input:checked ~ article.q1a{
+    height: 200px;
+}
+
+input:checked ~ article.q2a{
+    height: 200px;
+}
+
+input:checked ~ article.q3a{
+    height: 200px;
+}
+
+input:checked ~ article.q4a{
+    height: 200px;
+}
+
+input:checked ~ article.q5a{
+    height: 200px;
+}
+
+.contact{
+    background-image: url(image/background_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 600px;
+   }
+   
+   .contact img{
+       margin-top: 40px;
+   }
+   
+   .contact h2{
+   color: #3c3c3c;
+   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   margin-bottom: 30px ;
+   }
+   
+   .contact ul{
+   color: #000000;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size: 1.2rem;
+   }
+   
+   .contact a{
+       color: #c00000;
+       text-decoration: none;
+   }
+   
+   .contact a:hover{
+       text-decoration: underline;
+   }
+   
+
+footer{
+background-color: #000000;
+color: #ffffff;
+font-family:Arial, Helvetica, sans-serif;
+font-size: small;
+}
+
+@media screen and (max-width: 450px) {
+
+    label{
+        font-size: 0.75rem;
+    }
+
+    header {
+        padding: 0 15px; /* Add padding to prevent content from touching edges */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    h1 {
+        left: 15px; /* Reduced from 80px to move logo left */
+        background-size: 80px; /* Slightly reduced size for mobile */
+        width: 80px; /* Match background-size */
+    }
+    
+    header ul {
+        right: 15px; /* Added fixed padding instead of 0vw */
+    }
+    
+    header li {
+        display: inline;
+        margin-right: 15px; /* Fixed margin instead of 4vw */
+    }
+    
+    header li:last-child {
+        margin-right: 0; /* Remove margin from last item */
+    }
+
+    .contact{
+        height: 400px;
+       }
+       
+       .contact img{
+           width: 300px;
+           margin-top: 20px;
+       }
+       
+       .contact h2{
+           font-size: 1.5rem;
+       }
+       
+       .contact ul{
+       font-size: 1.2rem;
+       }
+}

@@ -1,0 +1,489 @@
+* {
+    padding:0;
+    margin:0
+}
+header{
+    background-color:  rgb(0, 0, 0 );
+    height:80px;
+    width:100%;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+h1{
+color: #ffffff;
+position: absolute;
+left: 80px;
+top: 0;
+line-height: 80px;
+background-image:url(image/logo-white2.svg);
+background-repeat: no-repeat;
+background-position: center;
+background-size:100px;
+text-indent: -9999px;
+width:100px;
+height:80px;
+overflow:hidden
+}
+header ul{
+    position: absolute;
+    right: 0vw;
+    top: 0;
+    line-height: 80px;
+}
+header li{
+    display: inline;
+    margin-right: 4vw;
+}
+header a{
+    color: #ffffff;
+    text-decoration: none;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+header a:hover{
+    text-decoration: underline;
+}
+
+.service{
+position: relative;
+background-color: #000000;
+height: 80px;
+margin-top: 80px;
+}
+
+.service h2{
+    position:relative;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    top: 20px;
+}
+
+.interview {
+    background-image: url(image/Pngtree.jpg) ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:500px;
+    width:100%;
+    display: flex;
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Horizontal center (adjust as needed) */
+    padding: 10px 0;
+    margin: 10px 0;
+    gap: 50px; /* Replaces manual margins for spacing */
+}
+
+.interview img {
+    width: 500px;
+    height: auto;
+    margin: 0 10px 0 50px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.interview img:hover {
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.interview div {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0 50px 0 0;
+}
+
+.interview p{
+    color: #525252;
+    text-decoration: none;
+}
+
+.interview p:hover{
+    color: #ffffff;
+    text-shadow: 0 0 20px rgb(0, 72, 255);
+    transition: text-shadow 0.3s ease;
+}
+
+.community{
+    display: flex;
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Horizontal center (adjust as needed) */
+    padding: 10px 0;
+    margin: 10px 0;
+    gap: 50px; /* Replaces manual margins for spacing */
+}
+
+.community div{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0 10px 0 50px;
+}
+
+.community img {
+    width: 500px;
+    height: auto;
+    margin: 0 50px 0 0;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.community img:hover {
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.community p{
+    color: #525252;
+    text-decoration: none;
+}
+
+.community p:hover{
+    color: #ffffff;
+    text-shadow: 0 0 20px rgb(255, 132, 0);
+    transition: text-shadow 0.3s ease;
+}
+
+.action {
+    background-image: url(image/Pngtree.jpg) ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:500px;
+    width:100%;
+    display: flex;
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Horizontal center (adjust as needed) */
+    padding: 10px 0;
+    gap: 50px; /* Replaces manual margins for spacing */
+}
+
+.action img {
+    width: 500px;
+    height: auto;
+    margin: 0 10px 0 50px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.action img:hover {
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.action div {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0 50px 0 0;
+}
+
+.action p{
+    color: #525252;
+    text-decoration: none;
+}
+
+.action p:hover{
+    color: #ffffff;
+    text-shadow: 0 0 20px rgb(255, 0, 0);
+    transition: text-shadow 0.3s ease;
+}
+
+.price{
+    position: relative;
+    background-color: #000000;
+    height: 80px;
+    margin-top: 0;
+    }
+    
+    .price h2{
+        position:relative;
+        z-index: 2;
+        color: rgb(255, 255, 255);
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: center;
+        font-size: 2.5rem;
+        top: 20px;
+    }
+
+    .table {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center horizontally */
+        justify-content: center; /* Center vertically (if needed) */
+        padding: 10px 0;
+        margin: 30px 0;
+        gap: 50px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: center; /* Center text inside h2 */
+    }
+    
+    .table h2 {
+        font-style: oblique;
+        margin: 0; /* Remove default margins */
+    }
+    
+    .table img {
+        width: 800px;
+        height: auto;
+        display: block; /* Remove extra space below image */
+        margin: 0 auto; /* Center the image horizontally */
+    }
+
+    .table h3{
+        font-size: 1.5rem;
+    }
+
+.table a{
+    text-decoration: none;
+}
+
+.table a:hover{
+    text-decoration: underline;
+}
+
+.social{
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.social h2{
+    font-size: 1.5em;
+}
+
+.social a{
+    
+    text-decoration: none;
+}
+
+.social a:hover{
+    text-decoration: underline;
+}
+
+.social img{
+    height: 200px;
+    margin-bottom: 16px;
+}
+
+.contact{
+ background-image: url(image/background_2.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;
+ text-align: center;
+ height: 200px;
+}
+
+.contact h2{
+color: #3c3c3c;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+margin: 50px 0 30px 0; /* Top: 50px | Bottom: 30px */
+padding-top: 30px;
+}
+
+.contact ul{
+color: #000000;
+font-family:Arial, Helvetica, sans-serif;
+font-size: 1.2rem;
+}
+
+.contact a{
+    color: #c00000;
+    text-decoration: none;
+}
+
+.contact a:hover{
+    text-decoration: underline;
+}
+
+footer{
+background-color: #000000;
+color: #ffffff;
+font-family:Arial, Helvetica, sans-serif;
+font-size: small;
+}
+
+/*Responsive Design  */
+@media screen and (max-width: 768px){
+    .interview{
+        height:auto;
+        width:100%;
+        display: flex;
+        align-items: center; /* Vertical center */
+        justify-content: center; /* Horizontal center (adjust as needed) */
+        padding: 20px 0;
+        gap: 20px; /* Replaces manual margins for spacing */
+    }
+    
+    .interview img {
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        margin: 0;
+        border-radius: 20px;
+    }
+ 
+    .interview div {
+        margin: 0;             /* Remove margins */
+        padding: 0 20px;      /* Add horizontal padding for text */
+        text-align: center;   /* Center text */
+    }       
+    
+    .community{
+        height:auto;
+        width:100%;
+        display: flex;
+        align-items: center; /* Vertical center */
+        justify-content: center; /* Horizontal center (adjust as needed) */
+        padding: 20px 0;
+        gap: 20px; /* Replaces manual margins for spacing */
+    }
+    
+    .community img {
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        margin: 0;
+        border-radius: 20px;
+    }
+ 
+    .community div {
+        margin: 0;             /* Remove margins */
+        padding: 0 20px;      /* Add horizontal padding for text */
+        text-align: center;   /* Center text */
+    }       
+    
+    .action{
+        height:auto;
+        width:100%;
+        display: flex;
+        align-items: center; /* Vertical center */
+        justify-content: center; /* Horizontal center (adjust as needed) */
+        padding: 20px 0;
+        gap: 20px; /* Replaces manual margins for spacing */
+    }
+    
+    .action img {
+        width: 80%;
+        max-width: 300px;
+        height: auto;
+        margin: 0;
+        border-radius: 20px;
+    }
+ 
+    .action div {
+        margin: 0;             /* Remove margins */
+        padding: 0 20px;      /* Add horizontal padding for text */
+        text-align: center;   /* Center text */
+    }   
+    
+    
+    .table h2 {
+        font-style: oblique;
+        font-size: 1rem;
+        margin: 0; /* Remove default margins */
+    }
+    
+    .table img {
+        width: 550px;
+        height: auto;
+        display: block; /* Remove extra space below image */
+        margin: 0 auto; /* Center the image horizontally */
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    header {
+        padding: 0 15px; /* Add padding to prevent content from touching edges */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    h1 {
+        left: 15px; /* Reduced from 80px to move logo left */
+        background-size: 80px; /* Slightly reduced size for mobile */
+        width: 80px; /* Match background-size */
+    }
+    
+    header ul {
+        right: 15px; /* Added fixed padding instead of 0vw */
+    }
+    
+    header li {
+        display: inline;
+        margin-right: 15px; /* Fixed margin instead of 4vw */
+    }
+    
+    header li:last-child {
+        margin-right: 0; /* Remove margin from last item */
+    }
+
+    .contact{
+        height: 200px;
+       }
+       
+       .contact h2{
+           font-size: 1.5rem;
+       }
+       
+       .contact ul{
+       font-size: 1.2rem;
+       }
+    
+    .interview img {
+        width: 50%;
+        max-width: 300px;
+        height: auto;
+        margin: 0 20px;
+        border-radius: 20px;
+    }
+ 
+    .interview div {
+        width: 50%;
+        margin: 0;             /* Remove margins */
+        padding: 0 20px;      /* Add horizontal padding for text */
+    }       
+    
+    .community img {
+        width: 50%;
+        max-width: 300px;
+        height: auto;
+        margin: 0 20px;
+        border-radius: 20px;
+    }
+ 
+    .community div {
+        width: 50%;
+        margin: 0;             /* Remove margins */
+        padding: 0 20px;      /* Add horizontal padding for text */
+
+    }       
+
+
+    .action img {
+        width: 50%;
+        max-width: 300px;
+        height: auto;
+        margin: 0 20px;
+        border-radius: 20px;
+    }
+ 
+    .action div {
+        width: 50%;
+        margin: 0;             /* Remove margins */
+        padding: 0 20px;      /* Add horizontal padding for text */
+        text-align: center;   /* Center text */
+    }   
+    
+    
+    .table h2 {
+        font-size: 1.2rem;
+        margin: 0 10px;
+    }
+    
+    .table img {
+        width: 400px;
+    }
+}
