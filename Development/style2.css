@@ -243,6 +243,35 @@ margin-top: 80px;
     width: 80px;
 }
 
+.social{
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.social h2{
+    font-size: 1.5em;
+}
+
+.social a{
+    
+    text-decoration: none;
+}
+
+.social a:hover{
+    text-decoration: underline;
+}
+
+.social img{
+    height: 200px;
+    margin-bottom: 16px;
+}
+
 .contact{
  background-image: url(image/background_2.jpg);
  background-repeat: no-repeat;
