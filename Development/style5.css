@@ -163,8 +163,9 @@ z-index: 9999; /* ensure it's above all other elements */
     letter-spacing: 0.5px;
     line-height: 1;
   }
-  #progress a:hover,
-  #progress a:focus{
+
+#progress a:hover,
+#progress a:focus{
     color: #011250;             /* hover color (optional) */
   }
 
