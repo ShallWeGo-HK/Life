@@ -129,7 +129,13 @@ margin-top: 80px;
     max-height: 2000px; 
   }
 
+  #q9:checked ~ .q9a{
+    max-height: 2000px; 
+  }
 
+  #q10:checked ~ .q10a{
+    max-height: 2000px; 
+  }
 
 
 
