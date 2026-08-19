@@ -11,28 +11,30 @@ header{
     left: 0;
     z-index: 9999;
 }
-header h1 a {
-    display: block;        /* 將 a 轉為區塊元素 */
-    width: 100%;           /* 寬度填滿 h1 */
-    height: 100%;          /* 高度填滿 h1 */
-    pointer-events: auto;  /* 確保允許點擊 */
+
+h1 {
+    color: #ffffff;
+    position: absolute;
+    left: 80px;
+    top: 0;
+    width: 100px;
+    height: 80px;
+    margin: 0; /* 記得重置 margin，避免瀏覽器預設值干擾 */
+    background-image: url(image/logo-white2.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
 }
 
-h1{
-color: #ffffff;
-position: absolute;
-left: 80px;
-top: 0;
-line-height: 80px;
-background-image:url(image/logo-white2.svg);
-background-repeat: no-repeat;
-background-position: center;
-background-size:100px;
-text-indent: -9999px;
-width:100px;
-height:80px;
-overflow:hidden
+h1 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px; /* 將隱藏文字的屬性移到這裡也可以 */
+    overflow: hidden;
 }
+
+
 header ul{
     position: absolute;
     right: 0vw;
