@@ -2,36 +2,48 @@
     padding:0;
     margin:0
 }
-header{
-    background-color:  rgb(0, 0, 0 );
-    height:80px;
-    width:100%;
-    position:fixed;
+header {
+    background-color: rgb(0, 0, 0);
+    height: 80px;
+    width: 100%;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
 }
 
 h1 {
-    color: #ffffff;
     position: absolute;
     left: 80px;
     top: 0;
     width: 100px;
     height: 80px;
-    margin: 0; /* 記得重置 margin，避免瀏覽器預設值干擾 */
+    margin: 0; /* 重置預設邊距 */
+}
+
+/* 將 Logo 圖片與點擊區域完全綁定在 a 標籤上 */
+h1 a {
+    display: block;                  /* 轉為區塊元素以套用寬高 */
+    width: 100%;                     /* 填滿 h1 的寬度 (100px) */
+    height: 100%;                    /* 填滿 h1 的高度 (80px) */
+    
+    /* 背景圖片設定 */
     background-image: url(image/logo-white2.svg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100px;
+    background-size: contain;        /* 自動適應大小 */
+    
+    /* 隱藏 SEO 文字並確保點擊體驗 */
+    text-indent: -9999px;            /* 將 h1 中的文字移出畫面外 */
+    overflow: hidden;                /* 隱藏超出部分 */
+    cursor: pointer;                 /* 滑鼠移上去顯示點擊手勢 */
+    pointer-events: auto;            /* 確保允許點擊 */
 }
 
-h1 a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-indent: -9999px; /* 將隱藏文字的屬性移到這裡也可以 */
-    overflow: hidden;
+/* 選擇性加強：滑鼠懸停時微調透明度，更有「按鈕」的互動感 */
+h1 a:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
 }
 
 
