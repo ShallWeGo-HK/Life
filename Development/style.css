@@ -9,7 +9,10 @@ header{
     position:fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 9999;
+}
+header h1 a {
+    pointer-events: auto; /* 確保允許滑鼠點擊 */
 }
 
 h1{
