@@ -12,7 +12,10 @@ header{
     z-index: 9999;
 }
 header h1 a {
-    pointer-events: auto; /* 確保允許滑鼠點擊 */
+    display: block;        /* 將 a 轉為區塊元素 */
+    width: 100%;           /* 寬度填滿 h1 */
+    height: 100%;          /* 高度填滿 h1 */
+    pointer-events: auto;  /* 確保允許點擊 */
 }
 
 h1{
