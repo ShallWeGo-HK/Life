@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-HK" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shall We Go | 香港生命發展與出走探索平台</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Noto Sans HK & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        softblue: {
+                            50: '#f0f7ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            900: '#0f2c42',
+                        },
+                        sand: {
+                            50: '#fdfbf7',
+                            100: '#f7f3ea',
+                            200: '#eee5d3',
+                            300: '#e2d2b5',
+                            500: '#c5ab80',
+                        },
+                        terracotta: {
+                            500: '#e07a5f',
+                            600: '#d16244',
+                        },
+                        ocean: {
+                            800: '#1d2d44',
+                            900: '#0d1b2a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans HK"', '"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans HK', 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark body {
+            background-color: #0d1b2a;
+            color: #e2e8f0;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-nav {
+            background: rgba(13, 27, 42, 0.85);
+        }
+        .soft-card {
+            background: #ffffff;
+            border: 1px solid rgba(224, 242, 254, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .soft-card {
+            background: #172a3a;
+            border-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        .soft-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.16);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #f8fafc 100%);
+        }
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #0d1b2a 0%, #172a3a 50%, #0f2c42 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bae6fd;
+            border-radius: 999px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #075985;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-softblue-200 selection:text-softblue-900 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-nav border-b border-softblue-100 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-softblue-600 via-sky-500 to-indigo-400 flex items-center justify-center text-white shadow-md shadow-softblue-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-compass text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight text-softblue-900 dark:text-white flex items-center gap-1.5">
+                            Shall We Go
+                            <span class="w-2 h-2 rounded-full bg-sky-400 inline-block animate-pulse"></span>
+                        </span>
+                        <p class="text-[11px] text-softblue-600 dark:text-softblue-300 font-medium tracking-wider">香港生命發展與出走探索</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <a href="#about" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">關於我們</a>
+                    <a href="#programs" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">探索項目</a>
+                    <a href="#events" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">活動日曆</a>
+                    <a href="#stories" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">生命故事</a>
+                    <a href="#quiz" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors flex items-center gap-1.5 text-softblue-700 dark:text-softblue-300 font-semibold">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xs text-sky-500"></i>
+                        出走提案測驗
+                    </a>
+                    <a href="#faq" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">常見問題</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden md:flex items-center gap-4">
+                    <!-- Dark mode toggle -->
+                    <button id="themeToggleBtn" aria-label="切換深淺模式" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-softblue-100 dark:hover:bg-slate-800 transition-colors">
+                        <i id="themeIcon" class="fa-regular fa-moon text-base"></i>
+                    </button>
+                    <!-- CTA Button -->
+                    <a href="#events" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-softblue-600 to-sky-500 hover:from-softblue-700 hover:to-sky-600 text-white font-medium text-sm transition-all shadow-sm hover:shadow-md hover:shadow-softblue-600/20 flex items-center gap-2">
+                        <span>預約活動</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden items-center gap-2">
+                    <button id="mobileThemeToggleBtn" aria-label="切換深淺模式" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-softblue-100 dark:hover:bg-slate-800 transition-colors">
+                        <i id="mobileThemeIcon" class="fa-regular fa-moon"></i>
+                    </button>
+                    <button id="mobileMenuBtn" aria-label="選單" class="p-2 text-slate-700 dark:text-slate-300 hover:text-softblue-600 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-softblue-100 dark:border-slate-800 bg-white dark:bg-ocean-900 px-4 pt-3 pb-6 space-y-3">
+            <a href="#about" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">關於我們</a>
+            <a href="#programs" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">探索項目</a>
+            <a href="#events" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">活動日曆</a>
+            <a href="#stories" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">生命故事</a>
+            <a href="#quiz" class="block px-3 py-2 rounded-lg text-softblue-700 dark:text-softblue-300 font-semibold hover:bg-softblue-50 dark:hover:bg-slate-800">1 分鐘出走提案測驗</a>
+            <a href="#faq" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">常見問題</a>
+            <div class="pt-2">
+                <a href="#events" class="w-full text-center block px-5 py-3 rounded-xl bg-gradient-to-r from-softblue-600 to-sky-500 text-white font-medium">預約活動 / 尋找體驗</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative min-h-[85vh] flex items-center overflow-hidden py-20 lg:py-32 bg-slate-950">
+            <!-- Fullscreen Auto-looping YouTube Video Background -->
+            <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+                <!-- Ambient Animated Background Fallback in case YouTube restricts iframe -->
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-sky-950 to-blue-950 animate-pulse opacity-80"></div>
+                
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77vh] min-w-full h-[56.25vw] min-h-full">
+                    <iframe 
+                        id="heroYoutubeIframe"
+                        src="https://www.youtube.com/embed/Br54J9puiL8?autoplay=1&mute=1&loop=1&playlist=Br54J9puiL8&playsinline=1&controls=0&disablekb=1&modestbranding=1&enablejsapi=1" 
+                        title="Shall We Go Promo Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="no-referrer-when-downgrade" 
+                        allowfullscreen
+                        class="w-full h-full pointer-events-none scale-125 border-0 opacity-90 transition-opacity duration-1000">
+                    </iframe>
+                </div>
+                <!-- Transparent overlay for legibility -->
+                <div class="overlay absolute inset-0 bg-slate-950/30 z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/40 z-10"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+                <div class="max-w-3xl space-y-6 text-center lg:text-left">
+                    
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/20 border border-sky-400/30 text-sky-300 text-xs font-semibold tracking-wide backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+                        香港身心靈與生命教育互動平台
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight text-white drop-shadow-lg">
+                        走出去，<br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-blue-200 to-indigo-200">遇見更好的自己</span>
+                    </h1>
+
+                    <p class="text-base sm:text-xl text-slate-200 max-w-2xl font-normal leading-relaxed drop-shadow">
+                        「Shall We Go」透過社區微漫遊、身心靈對話與生命探索沙龍，陪伴每一位在城市生活中感到疲累的你，重新找回生活節奏與內心平靜。
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#events" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-semibold shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 transition-all text-center flex items-center justify-center gap-2 text-sm sm:text-base">
+                            <span>探索最新出走活動</span>
+                            <i class="fa-solid fa-compass"></i>
+                        </a>
+                        <button onclick="openVideoModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-semibold border border-white/30 transition-all text-center flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
+                            <i class="fa-solid fa-circle-play text-sky-400 text-lg"></i>
+                            <span>觀看完整宣傳影片</span>
+                        </button>
+                    </div>
+
+                    <!-- Highlight Stats -->
+                    <div class="pt-8 grid grid-cols-3 gap-6 border-t border-white/10 max-w-lg mx-auto lg:mx-0 text-white">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-sky-300">100%</p>
+                            <p class="text-xs text-slate-300 mt-0.5">小班制安全體驗</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-sky-300">2,500+</p>
+                            <p class="text-xs text-slate-300 mt-0.5">參與人次與陪伴</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-bold text-sky-300">4.9/5</p>
+                            <p class="text-xs text-slate-300 mt-0.5">活動舒壓好評</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Values Section -->
+        <section id="about" class="py-20 bg-white dark:bg-ocean-900 border-y border-softblue-100/60 dark:border-slate-800 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <span class="text-xs font-semibold tracking-wider text-softblue-600 dark:text-softblue-400 uppercase">Our Core Vision</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white">為什麼我們發起 Shall We Go？</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                        在節奏緊湊的香港，我們常被工作與生活壓得喘不過氣。「Shall We Go」不僅是一個活動組織，更是一片能讓人放鬆呼吸、安心分享、勇敢嘗試新事物的心靈淨土。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                    <!-- Value 1 -->
+                    <div class="p-8 rounded-3xl bg-softblue-50/50 dark:bg-slate-800/50 border border-softblue-100 dark:border-slate-700/60 hover:border-softblue-300 transition-all text-center space-y-4">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-sky-500/10 text-sky-600 dark:text-sky-300 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100">舒壓與自我關懷</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            引導大家走出室內與螢幕，透過自然療癒與心靈對話，釋放累積已久的焦慮與壓力。
+                        </p>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="p-8 rounded-3xl bg-softblue-50/50 dark:bg-slate-800/50 border border-softblue-100 dark:border-slate-700/60 hover:border-softblue-300 transition-all text-center space-y-4">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100">無壓力的真實社群</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            建立友善、不具批判性的交流空間，讓每個人都能以最真實的姿態與同路人建立深層連結。
+                        </p>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="p-8 rounded-3xl bg-softblue-50/50 dark:bg-slate-800/50 border border-softblue-100 dark:border-slate-700/60 hover:border-softblue-300 transition-all text-center space-y-4">
+                        <div class="w-14 h-14 mx-auto rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-300 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100">生命探索與成長</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            透過主題工作坊與導師沙龍，協助青年與大眾探討生涯方向、價值觀與人生可能性。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="py-20 bg-softblue-50/30 dark:bg-ocean-900/50 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                    <div>
+                        <span class="text-xs font-semibold tracking-wider text-softblue-600 dark:text-softblue-400 uppercase">Core Pillars</span>
+                        <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-1">四大核心探索主題</h2>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm max-w-md">
+                        多元化的活動設計，照顧不同心情與狀態下的你。無論想安靜獨處還是廣結善緣，都能找到屬於你的步調。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Pillar 1 -->
+                    <div class="soft-card p-6 rounded-3xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-tree"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">自然與森林療癒</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                走進西貢、大嶼山與香港郊野，透過五感覺察、靜心步行與大自然連結，修復疲憊神經。
+                            </p>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-4">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-softblue-500"></i> 森林漫步微禪修</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-softblue-500"></i> 海浪聽音放鬆場</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="soft-card p-6 rounded-3xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-palette"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">心靈與藝術手作</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                結合表達性藝術治療元素，透過流體畫、陶藝與心理牌卡，將內心難以言喻的情緒視覺化。
+                            </p>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-4">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-softblue-500"></i> 繪畫心理學體驗</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-softblue-500"></i> 牌卡自我探索</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="soft-card p-6 rounded-3xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-shoe-prints"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">社區人文探索</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                用新視角重新走訪香港老街區，拜訪本土職人，感受社區溫度與微小的日常感動。
+                            </p>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-4">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-softblue-500"></i> 深水埗夜間微醺走讀</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-softblue-500"></i> 舊區建築攝影工作坊</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="soft-card p-6 rounded-3xl flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">生命發展沙龍</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                邀請跨領域嘉賓進行真誠座談，探討職場迷惘、人際關係與人生轉捩點的應對之道。
+                            </p>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-4">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-softblue-500"></i> 青年職涯迷惘夜談</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-softblue-500"></i> 同路人傾聽對話角</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Directory Section -->
+        <section id="events" class="py-20 bg-white dark:bg-ocean-900 border-t border-softblue-100/60 dark:border-slate-800 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3 mb-10">
+                    <span class="text-xs font-semibold tracking-wider text-softblue-600 dark:text-softblue-400 uppercase">Upcoming Experiences</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white">近期活動與工作坊日曆</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">選擇最適合你目前狀態的活動，給自己一場舒心的小出走。</p>
+                </div>
+
+                <!-- Filter Tabs & Search Bar -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+                    <!-- Category Tabs -->
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs sm:text-sm" id="eventFilterTabs">
+                        <button onclick="filterEvents('all')" class="filter-btn active px-4 py-2 rounded-full bg-softblue-600 text-white font-medium transition-all">
+                            全部活動
+                        </button>
+                        <button onclick="filterEvents('nature')" class="filter-btn px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium hover:bg-softblue-100 transition-all">
+                            🌿 自然療癒
+                        </button>
+                        <button onclick="filterEvents('art')" class="filter-btn px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium hover:bg-softblue-100 transition-all">
+                            🎨 心靈藝術
+                        </button>
+                        <button onclick="filterEvents('city')" class="filter-btn px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium hover:bg-softblue-100 transition-all">
+                            🏙️ 社區漫遊
+                        </button>
+                        <button onclick="filterEvents('salon')" class="filter-btn px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium hover:bg-softblue-100 transition-all">
+                            💬 生命沙龍
+                        </button>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-72">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                        <input type="text" id="eventSearchInput" onkeyup="searchEvents()" placeholder="搜尋活動或關鍵字..." class="w-full pl-9 pr-4 py-2 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm focus:outline-none focus:border-softblue-500 text-slate-800 dark:text-slate-200">
+                    </div>
+                </div>
+
+                <!-- Event Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="eventsContainer">
+                    <!-- Events will be rendered dynamically by JavaScript -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="py-20 bg-softblue-50/40 dark:bg-slate-900/80 transition-colors duration-300">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="soft-card p-8 sm:p-12 rounded-3xl relative overflow-hidden">
+                    <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-sky-200/40 dark:bg-softblue-600/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="text-center space-y-4 mb-8">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-600 dark:text-sky-400">
+                            <i class="fa-solid fa-sparkles mr-1"></i> Interactive Finder
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">尋找你的專屬出走提案</h2>
+                        <p class="text-sm text-slate-600 dark:text-slate-300">回答 2 個簡單問題，讓我們為你推薦最符合你當下心境的活動。</p>
+                    </div>
+
+                    <!-- Step 1 Question -->
+                    <div id="quizStep1" class="space-y-6">
+                        <p class="text-center font-medium text-slate-800 dark:text-slate-200 text-sm">問題 1 / 2：你今天最想獲得什麼？</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="selectQuizOption('mood', 'relax')" class="p-4 rounded-2xl border border-softblue-200 dark:border-slate-700 hover:bg-softblue-50 dark:hover:bg-slate-800 transition-all text-left flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-900/50 text-sky-600 flex items-center justify-center"><i class="fa-solid fa-wind"></i></span>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-800 dark:text-slate-100">腦袋放空、純粹放鬆</p>
+                                    <p class="text-xs text-slate-500">減緩壓力與焦慮</p>
+                                </div>
+                            </button>
+                            <button onclick="selectQuizOption('mood', 'social')" class="p-4 rounded-2xl border border-softblue-200 dark:border-slate-700 hover:bg-softblue-50 dark:hover:bg-slate-800 transition-all text-left flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-user-group"></i></span>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-800 dark:text-slate-100">認識朋友、真誠傾訴</p>
+                                    <p class="text-xs text-slate-500">尋找同路人社群</p>
+                                </div>
+                            </button>
+                            <button onclick="selectQuizOption('mood', 'explore')" class="p-4 rounded-2xl border border-softblue-200 dark:border-slate-700 hover:bg-softblue-50 dark:hover:bg-slate-800 transition-all text-left flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 flex items-center justify-center"><i class="fa-solid fa-compass"></i></span>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-800 dark:text-slate-100">探索社區、學習新知</p>
+                                    <p class="text-xs text-slate-500">體驗香港不同面貌</p>
+                                </div>
+                            </button>
+                            <button onclick="selectQuizOption('mood', 'direction')" class="p-4 rounded-2xl border border-softblue-200 dark:border-slate-700 hover:bg-softblue-50 dark:hover:bg-slate-800 transition-all text-left flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-lightbulb"></i></span>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-800 dark:text-slate-100">釐清方向、生命對話</p>
+                                    <p class="text-xs text-slate-500">探討職涯與人生迷惘</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Question (Hidden initial) -->
+                    <div id="quizStep2" class="hidden space-y-6">
+                        <p class="text-center font-medium text-slate-800 dark:text-slate-200 text-sm">問題 2 / 2：你偏好的活動場所與形態？</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="finishQuiz('outdoor')" class="p-4 rounded-2xl border border-softblue-200 dark:border-slate-700 hover:bg-softblue-50 dark:hover:bg-slate-800 transition-all text-left flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center"><i class="fa-solid fa-sun"></i></span>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-800 dark:text-slate-100">大自然或戶外陽光下</p>
+                                    <p class="text-xs text-slate-500">郊野、海邊或公園</p>
+                                </div>
+                            </button>
+                            <button onclick="finishQuiz('indoor')" class="p-4 rounded-2xl border border-softblue-200 dark:border-slate-700 hover:bg-softblue-50 dark:hover:bg-slate-800 transition-all text-left flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-mug-hot"></i></span>
+                                <div>
+                                    <p class="font-semibold text-sm text-slate-800 dark:text-slate-100">溫馨安靜的室內空間</p>
+                                    <p class="text-xs text-slate-500">工作室或特色咖啡店</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Result (Hidden initial) -->
+                    <div id="quizResult" class="hidden text-center space-y-6 py-4">
+                        <div class="w-16 h-16 mx-auto rounded-full bg-softblue-500/10 text-softblue-600 dark:text-softblue-300 flex items-center justify-center text-3xl">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100" id="resultTitle">為你推薦的出走提案</h3>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto" id="resultDesc">
+                                根據你的狀態，我們建議你參加戶外森林漫步或繪畫放鬆工作坊。
+                            </p>
+                        </div>
+                        <div class="pt-2 flex justify-center gap-3">
+                            <button onclick="resetQuiz()" class="px-5 py-2.5 rounded-full border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300">重新測驗</button>
+                            <a href="#events" class="px-6 py-2.5 rounded-full bg-softblue-600 text-white text-xs font-semibold hover:bg-softblue-700">查看推薦活動</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter / Contact CTA Section -->
+        <section class="py-16 bg-gradient-to-r from-softblue-700 via-softblue-600 to-sky-600 text-white relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+                <h2 class="text-2xl sm:text-4xl font-bold">訂閱「每週出走微信」</h2>
+                <p class="text-softblue-100 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+                    每週五發送精選香港隱藏好去處、心靈舒壓小貼士與最新活動預告，無垃圾郵件，隨時可以取消訂閱。
+                </p>
+
+                <form onsubmit="handleSubscribe(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 pt-2">
+                    <input type="email" required placeholder="輸入你的 Email 電子郵件..." class="flex-grow px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-softblue-200 text-sm focus:outline-none focus:ring-2 focus:ring-white/40">
+                    <button type="submit" class="px-7 py-3 rounded-full bg-white text-softblue-800 font-semibold text-sm hover:bg-softblue-50 transition-colors shadow-lg">
+                        立即訂閱
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <div class="space-y-3 md:col-span-1">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-softblue-600 to-sky-400 text-white flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <span class="text-base font-bold text-white">Shall We Go</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        陪伴香港人在忙碌日常中找回內心平靜與探索勇氣的生命體驗平台。
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-200 mb-3 text-sm">快速連結</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-softblue-400 transition-colors">關於我們</a></li>
+                        <li><a href="#programs" class="hover:text-softblue-400 transition-colors">四大探索主題</a></li>
+                        <li><a href="#events" class="hover:text-softblue-400 transition-colors">最新活動總覽</a></li>
+                        <li><a href="#quiz" class="hover:text-softblue-400 transition-colors">出走提案測驗</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-200 mb-3 text-sm">社群與連結</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/shallwego-hk" target="_blank" class="hover:text-softblue-400 transition-colors"><i class="fa-brands fa-github mr-1.5"></i> GitHub Pages</a></li>
+                        <li><a href="#" class="hover:text-softblue-400 transition-colors"><i class="fa-brands fa-instagram mr-1.5"></i> Instagram (@shallwego.hk)</a></li>
+                        <li><a href="#" class="hover:text-softblue-400 transition-colors"><i class="fa-brands fa-facebook mr-1.5"></i> Facebook 社群專頁</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-200 mb-3 text-sm">聯絡支援</h4>
+                    <p class="text-slate-400 mb-2">有合作想法或活動疑問？歡迎隨時與我們聯繫。</p>
+                    <p class="text-softblue-400 font-mono">hello@shallwego.hk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Events Data Source
+        const eventsData = [
+            {
+                id: 1,
+                category: 'nature',
+                title: '【森林療癒】西貢海島清晨覺察與靜心步行',
+                date: '2026年9月5日 (六) 09:30 - 12:30',
+                location: '西貢碼頭集合',
+                seats: '剩餘 3 名',
+                badge: '熱門',
+                badgeBg: 'bg-sky-500/10 text-sky-600 dark:text-sky-400',
+                desc: '暫別手機通知，在導師引導下透過五感體會樹林微風、海浪與清晨的日光。',
+                fee: 'HK$ 120 (含渡輪與小食)'
+            },
+            {
+                id: 2,
+                category: 'city',
+                title: '【社區漫遊】深水埗老街與心靈咖啡微光體驗',
+                date: '2026年9月12日 (六) 14:30 - 17:00',
+                location: '深水埗地鐵站',
+                seats: '剩餘 2 名',
+                badge: '精選',
+                badgeBg: 'bg-softblue-500/10 text-softblue-600 dark:text-softblue-400',
+                desc: '慢步紀錄老區角落故事，並在特色獨立咖啡店進行 1 小時輕心靈繪畫交流。',
+                fee: 'HK$ 80'
+            },
+            {
+                id: 3,
+                category: 'art',
+                title: '【心靈藝術】流體畫與情感色彩自我對話',
+                date: '2026年9月18日 (五) 19:00 - 21:00',
+                location: '觀塘藝術工作室',
+                seats: '剩餘 5 名',
+                badge: '額滿即止',
+                badgeBg: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400',
+                desc: '無需任何繪畫基礎，藉由色彩自由流動釋放累積的壓抑情緒，帶走專屬畫作。',
+                fee: 'HK$ 180 (包含全套畫材)'
+            },
+            {
+                id: 4,
+                category: 'salon',
+                title: '【生命沙龍】職場迷惘與20+歲的生涯轉折對話',
+                date: '2026年9月20日 (日) 15:00 - 17:00',
+                location: '中環共享空間 / 線上同步',
+                seats: '剩餘 8 名',
+                badge: '免費公益',
+                badgeBg: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400',
+                desc: '邀請兩位跨領域轉職嘉賓分享真實歷程，與同路人在無壓力氛圍中暢談未來。',
+                fee: '免費 (需預先登記)'
+            },
+            {
+                id: 5,
+                category: 'nature',
+                title: '【大自然對話】大嶼山日落海岸聽濤微出走',
+                date: '2026年9月26日 (六) 16:00 - 19:00',
+                location: '東涌地鐵站集合',
+                seats: '剩餘 4 名',
+                badge: '新品',
+                badgeBg: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
+                desc: '傍晚時分沿著海濱步道輕散步，欣賞晚霞並進行暖心圍圈營火對話。',
+                fee: 'HK$ 60'
+            },
+            {
+                id: 6,
+                category: 'art',
+                title: '【心靈探索】牌卡探索與自我價值釐清工作坊',
+                date: '2026年10月3日 (六) 14:00 - 16:30',
+                location: '旺角溫馨茶室',
+                seats: '剩餘 6 名',
+                badge: '熱門',
+                badgeBg: 'bg-sky-500/10 text-sky-600 dark:text-sky-400',
+                desc: '運用 OH 卡與內在探索牌卡，透過隱喻釐清目前生活中的優先順序與盲點。',
+                fee: 'HK$ 150'
+            }
+        ];
+
+        let currentQuizMood = '';
+
+        // DOM Loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fix YouTube Error 153 by appending dynamic origin parameter
+            const ytIframe = document.getElementById('heroYoutubeIframe');
+            if (ytIframe) {
+                try {
+                    const currentOrigin = window.location.origin && window.location.origin !== 'null' ? window.location.origin : 'https://www.youtube.com';
+                    const currentSrc = ytIframe.getAttribute('src');
+                    if (currentSrc && !currentSrc.includes('&origin=')) {
+                        ytIframe.setAttribute('src', currentSrc + '&origin=' + encodeURIComponent(currentOrigin));
+                    }
+                } catch (e) {
+                    console.warn('YouTube origin parameter auto-fit:', e);
+                }
+            }
+
+            renderEvents(eventsData);
+            setupThemeToggle();
+            setupMobileMenu();
+        });
+
+        // Render Events Grid
+        function renderEvents(list) {
+            const container = document.getElementById('eventsContainer');
+            if (list.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-compass text-3xl mb-2"></i>
+                        <p class="text-sm">沒有找到符合的活動，請嘗試其他關鍵字或分類。</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = list.map(item => `
+                <div class="soft-card rounded-3xl p-6 flex flex-col justify-between space-y-5">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold ${item.badgeBg}">
+                                ${item.badge}
+                            </span>
+                            <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-ticket mr-1"></i>${item.seats}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 hover:text-softblue-600 transition-colors cursor-pointer" onclick="openBookingModal('${item.title}')">
+                            ${item.title}
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            ${item.desc}
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-4">
+                        <div class="space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-regular fa-calendar text-softblue-600"></i>
+                                <span>${item.date}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-softblue-600"></i>
+                                <span>${item.location}</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-semibold text-slate-700 dark:text-slate-200">
+                                <i class="fa-solid fa-coins text-softblue-600"></i>
+                                <span>費用：${item.fee}</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openBookingModal('${item.title}')" class="w-full py-2.5 rounded-2xl bg-softblue-50 dark:bg-slate-800 hover:bg-softblue-600 hover:text-white text-softblue-700 dark:text-softblue-300 font-semibold text-xs transition-all border border-softblue-200 dark:border-slate-700 text-center">
+                            預約與查看詳情
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Event Category Filter
+        function filterEvents(category) {
+            // Update Tab UI
+            const buttons = document.querySelectorAll('#eventFilterTabs button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-softblue-600', 'text-white');
+                btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            });
+            event.currentTarget.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            event.currentTarget.classList.add('bg-softblue-600', 'text-white');
+
+            if (category === 'all') {
+                renderEvents(eventsData);
+            } else {
+                const filtered = eventsData.filter(item => item.category === category);
+                renderEvents(filtered);
+            }
+        }
+
+        // Event Search
+        function searchEvents() {
+            const query = document.getElementById('eventSearchInput').value.toLowerCase().trim();
+            const filtered = eventsData.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.desc.toLowerCase().includes(query) ||
+                item.location.toLowerCase().includes(query)
+            );
+            renderEvents(filtered);
+        }
+
+        // Quiz Logic
+        function selectQuizOption(type, value) {
+            if (type === 'mood') {
+                currentQuizMood = value;
+                document.getElementById('quizStep1').classList.add('hidden');
+                document.getElementById('quizStep2').classList.remove('hidden');
+            }
+        }
+
+        function finishQuiz(env) {
+            document.getElementById('quizStep2').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+
+            const titleEl = document.getElementById('resultTitle');
+            const descEl = document.getElementById('resultDesc');
+
+            if (currentQuizMood === 'relax' && env === 'outdoor') {
+                titleEl.innerText = '🌿 專屬提案：西貢海島清晨森林療癒';
+                descEl.innerText = '你現在需要的是大自然的微風與日光，讓海浪與森林幫你重置疲累的大腦。';
+            } else if (currentQuizMood === 'social' || env === 'indoor') {
+                titleEl.innerText = '☕ 專屬提案：深水埗老街漫遊與心靈咖啡館';
+                descEl.innerText = '溫暖的社區氛圍與小班制對話，能讓你輕鬆無壓力地結交優質的新朋友。';
+            } else if (currentQuizMood === 'direction') {
+                titleEl.innerText = '💬 專屬提案：20+歲生命發展沙龍與牌卡探索';
+                descEl.innerText = '透過同路人的故事分享與牌卡引導，為你釐清目前的困惑與下一步的方向。';
+            } else {
+                titleEl.innerText = '🎨 專屬提案：心靈流體畫與情感表達工作坊';
+                descEl.innerText = '讓色彩帶領你與內心對話，是一場絕佳的情緒抒發與藝術放鬆體驗。';
+            }
+        }
+
+        function resetQuiz() {
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('quizStep1').classList.remove('hidden');
+        }
+
+        // Modal Controls
+        function openBookingModal(eventTitle) {
+            document.getElementById('modalEventTitle').innerText = eventTitle;
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            showToast('已成功預約！我們將於 24 小時內發送確認訊息至您的 Email/WhatsApp。');
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            e.target.reset();
+            showToast('感謝訂閱！每週五我們將為你送上最新出走微信。');
+        }
+
+        // Video Modal Controls
+        function openVideoModal() {
+            const iframe = document.getElementById('modalVideoIframe');
+            iframe.src = "https://www.youtube.com/embed/Br54J9puiL8?autoplay=1&rel=0";
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            const iframe = document.getElementById('modalVideoIframe');
+            iframe.src = "";
+            document.getElementById('videoModal').classList.add('hidden');
+        }
+
+        // Toast Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        // FAQ Toggle
+        function toggleFaq(index) {
+            const answer = document.getElementById(`faqAnswer${index}`);
+            const icon = document.getElementById(`faqIcon${index}`);
+            const isHidden = answer.classList.contains('hidden');
+
+            if (isHidden) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Theme Toggle Setup
+        function setupThemeToggle() {
+            const themeBtn = document.getElementById('themeToggleBtn');
+            const mobileThemeBtn = document.getElementById('mobileThemeToggleBtn');
+            const icon = document.getElementById('themeIcon');
+            const mobileIcon = document.getElementById('mobileThemeIcon');
+
+            function toggleTheme() {
+                const isDark = document.documentElement.classList.toggle('dark');
+                const newIconClass = isDark ? 'fa-regular fa-sun' : 'fa-regular fa-moon';
+                icon.className = newIconClass;
+                mobileIcon.className = newIconClass;
+            }
+
+            themeBtn.addEventListener('click', toggleTheme);
+            mobileThemeBtn.addEventListener('click', toggleTheme);
+        }
+
+        // Mobile Menu Setup
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // Close on link click
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
