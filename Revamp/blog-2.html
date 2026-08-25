@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shall We Go | 創新的生涯規劃平台</title>
+        
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <!-- FontAwesome Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <!-- Google Fonts: Noto Sans HK & Plus Jakarta Sans -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+        <script>
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            softblue: {
+                                50: '#f0f7ff',
+                                100: '#e0f2fe',
+                                200: '#bae6fd',
+                                300: '#7dd3fc',
+                                400: '#38bdf8',
+                                500: '#0284c7',
+                                600: '#0369a1',
+                                700: '#075985',
+                                800: '#0c4a6e',
+                                900: '#0f2c42',
+                            },
+                            sand: {
+                                50: '#fdfbf7',
+                                100: '#f7f3ea',
+                                200: '#eee5d3',
+                                300: '#e2d2b5',
+                                500: '#c5ab80',
+                            },
+                            terracotta: {
+                                500: '#e07a5f',
+                                600: '#d16244',
+                            },
+                            ocean: {
+                                800: '#1d2d44',
+                                900: '#0d1b2a',
+                            }
+                        },
+                        fontFamily: {
+                            sans: ['"Noto Sans HK"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        }
+                    }
+                }
+            }
+        </script>
+    <style>
+        body {
+            font-family: 'Noto Sans HK', 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark body {
+            background-color: #0d1b2a;
+            color: #e2e8f0;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-nav {
+            background: rgba(13, 27, 42, 0.85);
+        }
+        .soft-card {
+            background: #ffffff;
+            border: 1px solid rgba(224, 242, 254, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .soft-card {
+            background: #172a3a;
+            border-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        .soft-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.16);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #f8fafc 100%);
+        }
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #0d1b2a 0%, #172a3a 50%, #0f2c42 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bae6fd;
+            border-radius: 999px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #075985;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-softblue-200 selection:text-softblue-900 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-nav border-b border-softblue-100 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
+                        <img src="/Users/eventse/Desktop/Shall We Goal/Website materials/Development/Revamp/image3/logo-black.svg" alt="Image description" width="1200" height="1000" class="w-full h-full object-contain dark:hidden">
+                        <img src="/Users/eventse/Desktop/Shall We Goal/Website materials/Development/Revamp/image3/logo-white2.svg" alt="Image description" width="1200" height="1000" class="w-full h-full object-contain hidden dark:inline-block">
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight text-softblue-900 dark:text-white flex items-center gap-1.5">
+                            Shall We Go
+                        </span>
+                        <p class="text-[9px] text-softblue-600 dark:text-softblue-300 font-medium tracking-wider">陪你走｜創新的生涯規劃平台</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#about" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">關於我們</a>
+                    <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#programs" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">核心服務</a>
+                    <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#stories" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">服務迴響</a>
+                    <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#faq" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">常見問題</a>
+                    <a href="https://" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">生涯隨筆 <span class="w-2 h-2 rounded-full bg-sky-400 inline-block animate-pulse"></span></a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden md:flex items-center gap-4">
+                    <button id="themeToggleBtn" aria-label="切換深淺模式" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-softblue-100 dark:hover:bg-slate-800 transition-colors">
+                        <i id="themeIcon" class="fa-regular fa-moon text-base"></i>
+                    </button>
+                    <a href="https://shallwego-hk.github.io/Forum/onlineforum.html" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-softblue-600 to-sky-500 hover:from-softblue-700 hover:to-sky-600 text-white font-medium text-sm transition-all shadow-sm hover:shadow-md hover:shadow-softblue-600/20 flex items-center gap-2">
+                        <span>✨ 同路人討論區</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden items-center gap-2">
+                    <button id="mobileThemeToggleBtn" aria-label="切換深淺模式" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-softblue-100 dark:hover:bg-slate-800 transition-colors">
+                        <i id="mobileThemeIcon" class="fa-regular fa-moon"></i>
+                    </button>
+                    <button id="mobileMenuBtn" aria-label="選單" class="p-2 text-slate-700 dark:text-slate-300 hover:text-softblue-600 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-softblue-100 dark:border-slate-800 bg-white dark:bg-ocean-900 px-4 pt-3 pb-6 space-y-3">
+            <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#about" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">關於我們</a>
+            <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#programs" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">核心服務</a>
+            <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#stories" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">服務迴響</a>
+            <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#faq" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">常見問題</a>
+            <a href="https://" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">生涯隨筆 <span class="w-2 h-2 rounded-full bg-sky-400 inline-block animate-pulse"></span></a>
+            <div class="pt-2">
+                <a href="https://shallwego-hk.github.io/Forum/onlineforum.html" class="w-full text-center block px-5 py-3 rounded-xl bg-gradient-to-r from-softblue-600 to-sky-500 text-white font-medium">同路人討論區</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-slate-900 text-white py-20 lg:py-28 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0 opacity-30">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80" alt="Shall We Go Banner" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <span class="inline-block px-3 py-1 bg-brand-500/20 backdrop-blur-md border border-brand-500/30 text-brand-200 rounded-full text-xs font-semibold tracking-wider uppercase mb-4">
+                Let's explore the world together
+            </span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-serif-tc tracking-tight leading-tight mb-6">
+                出發吧！記錄每一段流浪與日常
+            </h1>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-serif-tc leading-relaxed">
+                Shall We Go 是一個專屬的個人旅遊與生活隨筆空間。收集遠方的風景，定格當下的美好，與自己來一場說走就走的冒險。
+            </p>
+
+            <!-- Search Bar -->
+            <div class="max-w-xl mx-auto relative">
+                <div class="relative flex items-center">
+                    <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="搜尋景點、城市、美食或心得..." class="w-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-slate-300 rounded-full py-3.5 pl-12 pr-10 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-slate-900/80 transition-all text-sm">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-300"></i>
+                    <button id="clear-search" onclick="clearSearch()" class="absolute right-4 text-slate-300 hover:text-white hidden">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full" id="feed">
+        <!-- Category Pill Filters -->
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none" id="category-pills">
+                <!-- Javascript will populate dynamic active states -->
+            </div>
+
+            <div class="text-sm text-slate-500 dark:text-slate-400 font-medium flex items-center gap-2">
+                <span id="post-count">共 0 篇文章</span>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <select id="sort-select" onchange="handleSort()" class="bg-transparent text-slate-700 dark:text-slate-300 font-medium focus:outline-none cursor-pointer">
+                    <option value="newest" class="dark:bg-slate-800">最新發布</option>
+                    <option value="oldest" class="dark:bg-slate-800">最早發布</option>
+                    <option value="popular" class="dark:bg-slate-800">最多按讚</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Post Feed Grid -->
+        <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic Post Cards loaded via JS -->
+        </div>
+
+        <!-- Empty State Message -->
+        <div id="empty-state" class="hidden text-center py-16">
+            <div class="w-20 h-20 bg-stone-200 dark:bg-stone-800 rounded-full flex items-center justify-center mx-auto mb-4 text-stone-400 text-3xl">
+                <i class="fa-solid fa-compass-drafting"></i>
+            </div>
+            <h3 class="text-xl font-bold text-stone-700 dark:text-stone-200 mb-2">找不到相關網誌文章</h3>
+            <p class="text-stone-500 dark:text-stone-400 max-w-md mx-auto mb-6 text-sm">嘗試搜尋其他關鍵字或是點擊上方分類標籤。</p>
+        </div>
+
+        <!-- Destination Quick-Pins Banner -->
+        <div class="mt-20 bg-gradient-to-r from-slate-900 via-slate-800 to-sky-950 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-xl">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-[180px] pointer-events-none font-serif-tc">
+            Shall We Go!
+            </div>
+            <div class="relative z-10 max-w-2xl">
+                <span class="text-brand-300 font-semibold text-xs tracking-widest uppercase">Forum Highlights</span>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-tc mt-2 mb-4">探索精選帖文</h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    升學、就業，何去何從？做完性格測試，仍未完全了解自己？家長、老師、朋友，真正了解我的想法？與其獨自苦惱，不如來看看同路人的故事，獲得啟發。
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="quickSearch('京都')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-full text-xs font-medium backdrop-blur-sm transition-all">🇯🇵 日本京都</button>
+                    <button onclick="quickSearch('冰島')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-full text-xs font-medium backdrop-blur-sm transition-all">🇮🇸 冰島極光</button>
+                    <button onclick="quickSearch('清邁')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-full text-xs font-medium backdrop-blur-sm transition-all">🇹🇭 泰國清邁</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ARTICLE DETAIL MODAL -->
+    <div id="reader-modal" class="fixed inset-0 z-50 bg-stone-950/80 backdrop-blur-md hidden flex justify-center overflow-y-auto p-0 sm:p-4 md:p-6 opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-stone-900 w-full max-w-4xl min-h-screen sm:min-h-0 sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all transform scale-95 dark:text-stone-100">
+            <!-- Modal Header / Controls -->
+            <div class="sticky top-0 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 px-6 py-4 flex items-center justify-between z-20">
+                <div class="flex items-center gap-3">
+                    <span id="modal-category" class="bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-300 text-xs font-semibold px-3 py-1 rounded-full">類別</span>
+                    <span id="modal-read-time" class="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1"><i class="fa-regular fa-eye"></i>尚未閱讀</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="closeReaderModal()" class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 dark:text-stone-400 transition-colors">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Content Body -->
+            <div class="p-6 sm:p-10 flex-grow overflow-y-auto">
+                <h1 id="modal-title" class="text-2xl sm:text-4xl font-bold font-serif-tc text-stone-900 dark:text-white leading-tight mb-4">文章標題</h1>
+                
+                <div class="flex items-center gap-4 text-xs sm:text-sm text-stone-500 dark:text-stone-400 mb-8 pb-6 border-b border-stone-200 dark:border-stone-800">
+                    <div class="flex items-center gap-2">
+                        <img id="modal-author-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="w-8 h-8 rounded-full object-cover" alt="Author">
+                        <span id="modal-author-name" class="font-medium text-stone-700 dark:text-stone-300">作者名稱</span>
+                    </div>
+                    <span>•</span>
+                    <span id="modal-date">2026-08-25</span>
+                </div>
+
+                <!-- Cover Image -->
+                <div class="rounded-2xl overflow-hidden mb-8 max-h-[450px] shadow-md">
+                    <img id="modal-cover" src="" alt="Cover" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Main Text -->
+                <div id="modal-content" class="prose dark:prose-invert max-w-none font-serif-tc text-stone-700 dark:text-stone-300 text-base sm:text-lg leading-relaxed space-y-6">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- Tags -->
+                <div class="mt-10 pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-wrap gap-2" id="modal-tags">
+                    <!-- Tags dynamic -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 py-12 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4 md:col-span-2">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-2xl to-indigo-400 flex items-center justify-center text-white">
+                                <img src="/Users/eventse/Desktop/Shall We Goal/Website materials/Development/Revamp/image3/logo-white2.svg" alt="Image description" width="1200" height="1000" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-lg font-bold tracking-tight text-white">Shall We Go | 陪你走</span>
+                    </a>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                    結合專業的生涯規劃理念和項目管理經驗，助你贏在後天的起跑線！
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">快速連結</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="https://shallwego-hk.github.io/Life/Revamp/official.html##about" class="hover:text-softblue-300 transition-colors">關於我們</a></li>
+                        <li><a href="https://shallwego-hk.github.io/Life/Revamp/official.html##programs" class="hover:text-softblue-300 transition-colors">核心服務</a></li>
+                        <li><a href="https://shallwego-hk.github.io/Life/Revamp/official.html##stories" class="hover:text-softblue-300 transition-colors">服務迴響</a></li>
+                        <li><a href="https://shallwego-hk.github.io/Life/Revamp/official.html##faq" class="hover:text-softblue-300 transition-colors">常見問題</a></li>
+                        <li><a href="https://" class="hover:text-softblue-300 transition-colors">生涯隨筆</a></li>
+                        <li><a href="https://shallwego-hk.github.io/Forum/onlineforum.html" class="hover:text-softblue-300 transition-colors">同路人討論區</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">聯絡方式</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp: 9606 4537</li>
+                        <li class="flex items-center gap-2"><i class="fa-regular fa-envelope text-sky-400"></i> Email: shallwego.org@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
+                <p>© 2026 Shall We Go｜Even Tse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm font-medium transform translate-y-20 opacity-0 transition-all duration-300">
+        <i id="toast-icon" class="fa-solid fa-check-circle text-brand-500"></i>
+        <span id="toast-msg">提示訊息</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Default Articles Data
+        const INITIAL_POSTS = [
+            {
+                id: '1',
+                title: '京都深秋漫步：隱匿於山林間的古寺與抹茶茶室',
+                category: '熱門景點',
+                author: 'Alex Travel',
+                authorAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80',
+                date: '2026-08-20',
+                cover: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1000&q=80',
+                excerpt: '避開人群喧囂，走進嵐山深處的祇王寺與琉璃光院，體驗紅葉紛飛中的一抹寂靜與和風茶道。',
+                content: `穿過滿天紅葉織成的拱門，踩在鋪滿銀杏黃葉的石子路上，這是我第三次來到京都，但卻是第一次感受如此沉靜的深秋。
+
+京都的秋天總是熱鬧的，但只要你願意早起半個小時，或是往山腳深處走一些，就能找到屬於自己的安寧。位於嵐山北麓的祇王寺，被滿山翠綠與苔蘚包圍，當紅葉飄落在青苔上，形成了紅綠相映的視覺震撼。
+
+下午時分，坐在傳統的町家茶室內，接過茶師遞來的熱抹茶。微苦的茶香伴隨著和菓子自然的甜味，看著庭園裡風吹葉落，時間彷彿在此刻靜止了。
+
+**旅行小貼士：**
+1. 建議早晨 8:30 抵達，避開團體遊客。
+2. 琉璃光院秋季特別拜觀需預先網路上預約。
+3. 搭配周邊的豆腐料理作為午餐，能享有極佳的京都文化體驗。`,
+                tags: ['日本', '京都', '楓葉', '茶道']
+            },
+            {
+                id: '2',
+                title: '冰島環島日記：追尋瓦特納冰川與夜空中閃爍的歐若拉',
+                category: '熱門景點',
+                author: 'Elena Vance',
+                authorAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80',
+                date: '2026-08-15',
+                cover: 'https://images.unsplash.com/photo-1529963183134-61a90db47eaf?auto=format&fit=crop&w=1000&q=80',
+                excerpt: '沿著一號公路自駕，穿越黑沙灘、巨大瀑布，最終在冰河湖畔等待那一道劃破黑夜的綠色奇蹟。',
+                content: `冰島是一個能讓人同時感到孤獨與震撼的地方。這裡有未經雕琢的自然風貌，黑色的火山沙灘、冰藍色的古老冰川，以及呼嘯的北極風。
+
+我們沿著一號公路（Ring Road）進行了為期十天的自駕之旅。最難忘的一幕發生在傑古沙龍冰河湖（Jökulsárlón）。當夜幕低垂，氣溫驟降至零下，天空中突然劃過一束淡淡的綠光。隨後，綠色的光帶如絲帶般在夜空中舞動、翻滾，映照在湖面上漂浮的巨大冰塊上。
+
+那一刻，所有的寒冷與疲憊都化為烏有，只剩對大自然造物神奇的敬畏。
+
+**自駕注意事項：**
+- 冬季請務必租用四輪驅動（4WD）車款並配備釘胎。
+- 每日隨時查看 road.is 氣象與路況報導，冰島天氣瞬息萬變。`,
+                tags: ['冰島', '極光', '自駕', '冰川']
+            },
+            {
+                id: '3',
+                title: '清邁數位遊牧指南：5間適合沉浸工作的隱藏版咖啡館',
+                category: '美食地圖',
+                author: 'Alex Travel',
+                authorAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80',
+                date: '2026-08-10',
+                cover: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80',
+                excerpt: '清邁不只是古城與夜市！整理了幾間擁有絕佳 Wi-Fi、穩定插座與極品手沖咖啡的靈感創作空間。',
+                content: `作為自由職業者與數位遊牧者，清邁無疑是全球最友善的城市之一。這裡不僅物價宜人，更充滿了設計感十足、注重咖啡品質的風格咖啡館。
+
+在清邁生活的一個月裡，我每天都會帶著筆電造訪不同的咖啡館。以下是我最愛的推薦：
+
+1. **Graph Café (Nimman)**：手沖與特調咖啡的頂級代表，空間雖然小巧卻極具質感。
+2. **SS1254627 Café**：結合藝廊與花園畫廊，光線充足，特製早午餐更是令人驚艷。
+3. **Akha Ama Coffee**：支援在地泰北阿卡族咖啡豆，香氣濃郁且具社會企業意義。
+
+在這裡，工作不再是一件枯燥的事，而是生活步調的一部分。`,
+                tags: ['泰國', '清邁', '咖啡館', '數位遊牧']
+            },
+            {
+                id: '4',
+                title: '底片攝影的慢生活：用 35mm 視角紀錄日常與旅行的溫度',
+                category: '生活隨筆',
+                author: 'Sophia Chen',
+                authorAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80',
+                date: '2026-08-01',
+                cover: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80',
+                excerpt: '在按快門前停頓思考的三秒鐘，底片相機帶給我們的，是重拾對當下生活與細節的專注。',
+                content: `在這個智慧型手機隨手能拍下成百上千張照片的時代，我依然習慣在背包裡放一台老舊的底片相機（Olympus OM-1）。
+
+底片只有 36 張快門的限制，迫使你慢下來。觀察光影的變化、等待街角行人走過的瞬間、調整對焦環... 這種「不確定性」正是底片迷人的地方。
+
+當你拿到沖洗出來的底片，看著那些充滿粒子感與獨特色調的畫面，當時旅途中的溫度、空氣中的氣味，彷彿瞬間又重現眼前。`,
+                tags: ['底片攝影', '生活美學', '底片相機', '慢生活']
+            }
+        ];
+
+        // State Management
+        let posts = INITIAL_POSTS;
+        let currentCategory = 'All';
+        let searchQuery = '';
+        let currentSort = 'newest';
+        let readHistory = {};
+
+        function loadReadHistory() {
+            try {
+                readHistory = JSON.parse(localStorage.getItem('shall_we_go_read_history') || '{}');
+            } catch (e) {
+                readHistory = {};
+            }
+        }
+
+        function markAsRead(id) {
+            readHistory[id] = Date.now();
+            try {
+                localStorage.setItem('shall_we_go_read_history', JSON.stringify(readHistory));
+            } catch (e) {}
+        }
+
+        function getLastReadText(id) {
+            const ts = readHistory[id];
+            if (!ts) return '尚未閱讀';
+            
+            const now = Date.now();
+            const diffMs = now - ts;
+            const diffSec = Math.floor(diffMs / 1000);
+            const diffMin = Math.floor(diffSec / 60);
+            const diffHour = Math.floor(diffMin / 60);
+            const diffDay = Math.floor(diffHour / 24);
+
+            if (diffSec < 60) return '剛剛閱讀';
+            if (diffMin < 60) return `${diffMin} 分鐘前閱讀`;
+            if (diffHour < 24) return `${diffHour} 小時前閱讀`;
+            if (diffDay < 7) return `${diffDay} 天前閱讀`;
+
+            const d = new Date(ts);
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const date = String(d.getDate()).padStart(2, '0');
+            const hours = String(d.getHours()).padStart(2, '0');
+            const mins = String(d.getMinutes()).padStart(2, '0');
+            return `${year}/${month}/${date} ${hours}:${mins} 閱讀`;
+        }
+
+        // Initialize Data
+        function initData() {
+            loadReadHistory();
+            renderCategoryPills();
+            renderPosts();
+        }
+
+        // Rendering Functions
+        function renderCategoryPills() {
+            const categories = ['All', '熱門景點', '美食地圖', '生活隨筆'];
+            const container = document.getElementById('category-pills');
+            
+            container.innerHTML = categories.map(cat => {
+                const isActive = (cat === currentCategory);
+                const label = cat === 'All' ? '全部網誌' : cat;
+                return `
+                    <button onclick="filterCategory('${cat}')" class="px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+                        isActive 
+                        ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20' 
+                        : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700'
+                    }">
+                        ${label}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function renderPosts() {
+            const grid = document.getElementById('posts-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            // Filter posts
+            let filtered = posts.filter(post => {
+                const matchCategory = (currentCategory === 'All') || (post.category === currentCategory);
+                const q = searchQuery.toLowerCase();
+                const matchSearch = !q || 
+                    post.title.toLowerCase().includes(q) || 
+                    post.excerpt.toLowerCase().includes(q) || 
+                    post.tags.some(t => t.toLowerCase().includes(q));
+
+                return matchCategory && matchSearch;
+            });
+
+            // Sort posts
+            filtered.sort((a, b) => {
+                if (currentSort === 'newest') return new Date(b.date) - new Date(a.date);
+                if (currentSort === 'oldest') return new Date(a.date) - new Date(b.date);
+                return 0;
+            });
+
+            // Update Count
+            document.getElementById('post-count').innerText = `共 ${filtered.length} 篇文章`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            // Render Cards
+            grid.innerHTML = filtered.map(post => {
+                const lastRead = getLastReadText(post.id);
+                const isRead = lastRead !== '尚未閱讀';
+
+                return `
+                    <article class="bg-white dark:bg-slate-800/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/70 dark:border-slate-800 flex flex-col group cursor-pointer" onclick="openReaderModal('${post.id}')">
+                        <!-- Image & Category -->
+                        <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+                            <img src="${post.cover}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                            <div class="absolute top-4 left-4">
+                                <span class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md text-slate-800 dark:text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
+                                    ${post.category}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="p-6 flex flex-col flex-grow">
+                            <!-- Meta -->
+                            <div class="flex items-center gap-2 text-xs text-slate-400 mb-3">
+                                <span>${post.date}</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 ${isRead ? 'text-brand-600 dark:text-brand-400 font-medium' : ''}">
+                                    <i class="fa-regular fa-eye text-[11px]"></i> ${lastRead}
+                                </span>
+                            </div>
+
+                            <!-- Title -->
+                            <h3 class="text-xl font-bold font-serif-tc text-slate-900 dark:text-white leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors mb-3 line-clamp-2">
+                                ${post.title}
+                            </h3>
+
+                            <!-- Excerpt -->
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow font-serif-tc">
+                                ${post.excerpt}
+                            </p>
+
+                            <!-- Footer / Author -->
+                            <div class="pt-4 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between mt-auto">
+                                <div class="flex items-center gap-2.5">
+                                    <img src="${post.authorAvatar}" class="w-7 h-7 rounded-full object-cover" alt="Author">
+                                    <span class="text-xs font-medium text-slate-700 dark:text-slate-300">${post.author}</span>
+                                </div>
+                                <span class="text-xs text-brand-600 dark:text-brand-400 font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                    閱讀全文 <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // Reader Modal
+        function openReaderModal(id) {
+            const post = posts.find(p => p.id === id);
+            if (!post) return;
+
+            // Mark post as read
+            markAsRead(id);
+
+            document.getElementById('modal-title').innerText = post.title;
+            document.getElementById('modal-category').innerText = post.category;
+            document.getElementById('modal-read-time').innerHTML = `<i class="fa-regular fa-eye mr-1"></i>${getLastReadText(id)}`;
+            document.getElementById('modal-author-name').innerText = post.author;
+            document.getElementById('modal-author-avatar').src = post.authorAvatar;
+            document.getElementById('modal-date').innerText = post.date;
+            document.getElementById('modal-cover').src = post.cover;
+
+            // Content formatting
+            const paragraphs = post.content.split('\n\n').map(p => {
+                if (p.startsWith('**') && p.endsWith('**')) {
+                    return `<h4 class="font-bold text-stone-900 dark:text-white mt-4 mb-2">${p.replace(/\*\*/g, '')}</h4>`;
+                }
+                return `<p class="mb-4 leading-relaxed">${p.replace(/\n/g, '<br>')}</p>`;
+            }).join('');
+            document.getElementById('modal-content').innerHTML = paragraphs;
+
+            // Tags
+            document.getElementById('modal-tags').innerHTML = (post.tags || []).map(t => `
+                <span class="bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs px-3 py-1 rounded-full font-medium"># ${t}</span>
+            `).join('');
+
+            // Show Modal
+            const modal = document.getElementById('reader-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.firstElementChild.classList.remove('scale-95');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+
+            // Refresh cards in background so timestamp updates
+            renderPosts();
+        }
+
+        function closeReaderModal() {
+            const modal = document.getElementById('reader-modal');
+            modal.firstElementChild.classList.add('scale-95');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Filters & Search
+        function filterCategory(cat) {
+            currentCategory = cat;
+            renderCategoryPills();
+            renderPosts();
+        }
+
+        function handleSearch() {
+            const query = document.getElementById('search-input').value.trim();
+            searchQuery = query;
+            const clearBtn = document.getElementById('clear-search');
+            if (query) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+            renderPosts();
+        }
+
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            searchQuery = '';
+            document.getElementById('clear-search').classList.add('hidden');
+            renderPosts();
+        }
+
+        function quickSearch(tag) {
+            document.getElementById('search-input').value = tag;
+            handleSearch();
+            document.getElementById('feed').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSort() {
+            currentSort = document.getElementById('sort-select').value;
+            renderPosts();
+        }
+
+        // Theme Toggle (Dark / Light)
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon text-lg';
+                localStorage.setItem('shall_we_go_theme', 'light');
+            } else {
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun text-lg text-amber-400';
+                localStorage.setItem('shall_we_go_theme', 'dark');
+            }
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('shall_we_go_theme');
+            const icon = document.getElementById('theme-icon');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                if (icon) icon.className = 'fa-solid fa-sun text-lg text-amber-400';
+            }
+        }
+
+        // Global Initialization
+        window.onload = function() {
+            loadTheme();
+            initData();
+        };
+    </script>
+</body>
+</html>
