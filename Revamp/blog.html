@@ -558,7 +558,7 @@
             
             container.innerHTML = categories.map(cat => {
                 const isActive = (cat === currentCategory);
-                const label = cat === 'All' ? '全部網誌' : cat;
+                const label = cat === 'All' ? '全部文章' : cat;
                 return `
                     <button onclick="filterCategory('${cat}')" class="px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                         isActive 
