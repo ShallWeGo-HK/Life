@@ -1,62 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-TW" class="scroll-smooth">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Shall We Go | 創新的生涯規劃平台</title>
-        
-        <!-- Tailwind CSS -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        
-        <!-- FontAwesome Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        
-        <!-- Google Fonts: Noto Sans HK & Plus Jakarta Sans -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shall We Go | 創新的生涯規劃平台</title>
     
-        <script>
-            tailwind.config = {
-                darkMode: 'class',
-                theme: {
-                    extend: {
-                        colors: {
-                            softblue: {
-                                50: '#f0f7ff',
-                                100: '#e0f2fe',
-                                200: '#bae6fd',
-                                300: '#7dd3fc',
-                                400: '#38bdf8',
-                                500: '#0284c7',
-                                600: '#0369a1',
-                                700: '#075985',
-                                800: '#0c4a6e',
-                                900: '#0f2c42',
-                            },
-                            sand: {
-                                50: '#fdfbf7',
-                                100: '#f7f3ea',
-                                200: '#eee5d3',
-                                300: '#e2d2b5',
-                                500: '#c5ab80',
-                            },
-                            terracotta: {
-                                500: '#e07a5f',
-                                600: '#d16244',
-                            },
-                            ocean: {
-                                800: '#1d2d44',
-                                900: '#0d1b2a',
-                            }
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Noto Sans HK & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            900: '#0f2c42',
                         },
-                        fontFamily: {
-                            sans: ['"Noto Sans HK"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        softblue: {
+                            50: '#f0f7ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            900: '#0f2c42',
+                        },
+                        sand: {
+                            50: '#fdfbf7',
+                            100: '#f7f3ea',
+                            200: '#eee5d3',
+                            300: '#e2d2b5',
+                            500: '#c5ab80',
+                        },
+                        terracotta: {
+                            500: '#e07a5f',
+                            600: '#d16244',
+                        },
+                        ocean: {
+                            800: '#1d2d44',
+                            900: '#0d1b2a',
                         }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans HK"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        'serif-tc': ['"Noto Sans HK"', 'sans-serif'],
                     }
                 }
             }
-        </script>
+        }
+    </script>
     <style>
         body {
             font-family: 'Noto Sans HK', 'Plus Jakarta Sans', sans-serif;
@@ -110,6 +123,14 @@
         .dark .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #075985;
         }
+        /* Hide scrollbars for pill navigation */
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-softblue-200 selection:text-softblue-900 min-h-screen flex flex-col justify-between">
@@ -119,10 +140,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-2xl flex items-center justify-center text-white group-hover:scale-105 transition-transform">
-                        <img src="image3/logo-black.svg" alt="Image description" width="1200" height="1000" class="w-full h-full object-contain dark:hidden">
-                        <img src="image3/logo-white2.svg" alt="Image description" width="1200" height="1000" class="w-full h-full object-contain hidden dark:inline-block">
+                <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
+                        <img src="/Users/eventse/Desktop/Shall We Goal/Website materials/Development/Revamp/image3/logo-black.svg" alt="Image description" width="1200" height="1000" class="w-full h-full object-contain dark:hidden">
+                        <img src="/Users/eventse/Desktop/Shall We Goal/Website materials/Development/Revamp/image3/logo-white2.svg" alt="Image description" width="1200" height="1000" class="w-full h-full object-contain hidden dark:inline-block">
                     </div>
                     <div>
                         <span class="text-xl font-bold tracking-tight text-softblue-900 dark:text-white flex items-center gap-1.5">
@@ -138,12 +159,13 @@
                     <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#programs" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">核心服務</a>
                     <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#stories" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">服務迴響</a>
                     <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#faq" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">常見問題</a>
-                    <a href="https://" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">生涯隨筆 <span class="w-2 h-2 rounded-full bg-sky-400 inline-block animate-pulse"></span></a>
+                    <a href="https://shallwego-hk.github.io/Life/Revamp/blog.html" class="hover:text-softblue-600 dark:hover:text-softblue-300 transition-colors">生涯隨筆 <span class="w-2 h-2 rounded-full bg-sky-400 inline-block animate-pulse"></span></a>
                 </nav>
 
                 <!-- Header Actions -->
                 <div class="hidden md:flex items-center gap-4">
-                    <button id="themeToggleBtn" aria-label="切換深淺模式" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-softblue-100 dark:hover:bg-slate-800 transition-colors">
+                    <!-- Dark Mode Toggle Button (Desktop) -->
+                    <button id="themeToggleBtn" aria-label="切換深淺模式" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-softblue-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
                         <i id="themeIcon" class="fa-regular fa-moon text-base"></i>
                     </button>
                     <a href="https://shallwego-hk.github.io/Forum/onlineforum.html" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-softblue-600 to-sky-500 hover:from-softblue-700 hover:to-sky-600 text-white font-medium text-sm transition-all shadow-sm hover:shadow-md hover:shadow-softblue-600/20 flex items-center gap-2">
@@ -154,8 +176,9 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="flex md:hidden items-center gap-2">
-                    <button id="mobileThemeToggleBtn" aria-label="切換深淺模式" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-softblue-100 dark:hover:bg-slate-800 transition-colors">
-                        <i id="mobileThemeIcon" class="fa-regular fa-moon"></i>
+                    <!-- Dark Mode Toggle Button (Mobile) -->
+                    <button id="mobileThemeToggleBtn" aria-label="切換深淺模式" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-softblue-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+                        <i id="mobileThemeIcon" class="fa-regular fa-moon text-base"></i>
                     </button>
                     <button id="mobileMenuBtn" aria-label="選單" class="p-2 text-slate-700 dark:text-slate-300 hover:text-softblue-600 focus:outline-none">
                         <i class="fa-solid fa-bars-staggered text-xl"></i>
@@ -170,15 +193,15 @@
             <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#programs" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">核心服務</a>
             <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#stories" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">服務迴響</a>
             <a href="https://shallwego-hk.github.io/Life/Revamp/official.html#faq" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">常見問題</a>
-            <a href="https://" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">生涯隨筆 <span class="w-2 h-2 rounded-full bg-sky-400 inline-block animate-pulse"></span></a>
+            <a href="https://shallwego-hk.github.io/Life/Revamp/blog.html" class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-softblue-50 dark:hover:bg-slate-800 font-medium">生涯隨筆 <span class="w-2 h-2 rounded-full bg-sky-400 inline-block animate-pulse"></span></a>
             <div class="pt-2">
                 <a href="https://shallwego-hk.github.io/Forum/onlineforum.html" class="w-full text-center block px-5 py-3 rounded-xl bg-gradient-to-r from-softblue-600 to-sky-500 text-white font-medium">同路人討論區</a>
             </div>
         </div>
     </header>
 
+    <!-- Hero Banner Section -->
     <section class="relative bg-slate-900 text-white py-20 lg:py-28 overflow-hidden">
-        <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0 opacity-30">
             <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80" alt="Shall We Go Banner" class="w-full h-full object-cover">
         </div>
@@ -186,19 +209,19 @@
 
         <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
             <span class="inline-block px-3 py-1 bg-brand-500/20 backdrop-blur-md border border-brand-500/30 text-brand-200 rounded-full text-xs font-semibold tracking-wider uppercase mb-4">
-                Let's explore the world together
+                We walk beside you and read alongside you
             </span>
             <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-serif-tc tracking-tight leading-tight mb-6">
-                出發吧！記錄每一段流浪與日常
+                陪你走，陪你讀！
             </h1>
             <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-serif-tc leading-relaxed">
-                Shall We Go 是一個專屬的個人旅遊與生活隨筆空間。收集遠方的風景，定格當下的美好，與自己來一場說走就走的冒險。
+                這裏是Even Tse的個人成長與生活的隨筆空間。收集各方的見聞，定格當下的心境，與大家分享每段珍貴的回憶和遐想。
             </p>
 
             <!-- Search Bar -->
             <div class="max-w-xl mx-auto relative">
                 <div class="relative flex items-center">
-                    <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="搜尋景點、城市、美食或心得..." class="w-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-slate-300 rounded-full py-3.5 pl-12 pr-10 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-slate-900/80 transition-all text-sm">
+                    <input type="text" id="search-input" onkeyup="handleSearch()" placeholder="搜尋主題..." class="w-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-slate-300 rounded-full py-3.5 pl-12 pr-10 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-slate-900/80 transition-all text-sm">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-300"></i>
                     <button id="clear-search" onclick="clearSearch()" class="absolute right-4 text-slate-300 hover:text-white hidden">
                         <i class="fa-solid fa-xmark"></i>
@@ -208,11 +231,12 @@
         </div>
     </section>
 
+    <!-- Main Content Section -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full" id="feed">
         <!-- Category Pill Filters -->
         <div class="flex items-center justify-between flex-wrap gap-4 mb-8 border-b border-slate-200 dark:border-slate-800 pb-4">
             <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none" id="category-pills">
-                <!-- Javascript will populate dynamic active states -->
+                <!-- Dynamic categories loaded by JS -->
             </div>
 
             <div class="text-sm text-slate-500 dark:text-slate-400 font-medium flex items-center gap-2">
@@ -221,7 +245,6 @@
                 <select id="sort-select" onchange="handleSort()" class="bg-transparent text-slate-700 dark:text-slate-300 font-medium focus:outline-none cursor-pointer">
                     <option value="newest" class="dark:bg-slate-800">最新發布</option>
                     <option value="oldest" class="dark:bg-slate-800">最早發布</option>
-                    <option value="popular" class="dark:bg-slate-800">最多按讚</option>
                 </select>
             </div>
         </div>
@@ -240,9 +263,9 @@
             <p class="text-stone-500 dark:text-stone-400 max-w-md mx-auto mb-6 text-sm">嘗試搜尋其他關鍵字或是點擊上方分類標籤。</p>
         </div>
 
-        <!-- Destination Quick-Pins Banner -->
+        <!-- Forum Banner -->
         <div class="mt-20 bg-gradient-to-r from-slate-900 via-slate-800 to-sky-950 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-xl">
-            <div class="absolute -right-10 -bottom-10 opacity-10 text-[180px] pointer-events-none font-serif-tc">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-[180px] pointer-events-none font-serif-tc select-none">
             Shall We Go!
             </div>
             <div class="relative z-10 max-w-2xl">
@@ -252,9 +275,9 @@
                     升學、就業，何去何從？做完性格測試，仍未完全了解自己？家長、老師、朋友，真正了解我的想法？與其獨自苦惱，不如來看看同路人的故事，獲得啟發。
                 </p>
                 <div class="flex flex-wrap gap-3">
-                    <button onclick="quickSearch('京都')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-full text-xs font-medium backdrop-blur-sm transition-all">🇯🇵 日本京都</button>
-                    <button onclick="quickSearch('冰島')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-full text-xs font-medium backdrop-blur-sm transition-all">🇮🇸 冰島極光</button>
-                    <button onclick="quickSearch('清邁')" class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-full text-xs font-medium backdrop-blur-sm transition-all">🇹🇭 泰國清邁</button>
+                    <a href="https://shallwego-hk.github.io/Forum/onlineforum.html?category=升學發展" target="_blank" rel="noopener noreferrer" class="text-xs bg-white/10 hover:bg-white/20 px-3.5 py-2 rounded-lg border border-white/10 transition inline-flex items-center gap-1.5 font-medium hover:border-white/30">🎓 #升學發展</a>
+                    <a href="https://shallwego-hk.github.io/Forum/onlineforum.html?category=職涯增值" target="_blank" rel="noopener noreferrer" class="text-xs bg-white/10 hover:bg-white/20 px-3.5 py-2 rounded-lg border border-white/10 transition inline-flex items-center gap-1.5 font-medium hover:border-white/30">💼 #職涯轉型</a>
+                    <a href="https://shallwego-hk.github.io/Forum/onlineforum.html?category=敏捷生涯" target="_blank" rel="noopener noreferrer" class="text-xs bg-white/10 hover:bg-white/20 px-3.5 py-2 rounded-lg border border-white/10 transition inline-flex items-center gap-1.5 font-medium hover:border-white/30">⚡ #敏捷生涯</a>
                 </div>
             </div>
         </div>
@@ -262,15 +285,15 @@
 
     <!-- ARTICLE DETAIL MODAL -->
     <div id="reader-modal" class="fixed inset-0 z-50 bg-stone-950/80 backdrop-blur-md hidden flex justify-center overflow-y-auto p-0 sm:p-4 md:p-6 opacity-0 transition-opacity duration-300">
-        <div class="bg-white dark:bg-stone-900 w-full max-w-4xl min-h-screen sm:min-h-0 sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all transform scale-95 dark:text-stone-100">
-            <!-- Modal Header / Controls -->
-            <div class="sticky top-0 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 px-6 py-4 flex items-center justify-between z-20">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-4xl min-h-screen sm:min-h-0 sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all transform scale-95 dark:text-stone-100">
+            <!-- Modal Header -->
+            <div class="sticky top-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-stone-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between z-20">
                 <div class="flex items-center gap-3">
                     <span id="modal-category" class="bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-300 text-xs font-semibold px-3 py-1 rounded-full">類別</span>
                     <span id="modal-read-time" class="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1"><i class="fa-regular fa-eye"></i>尚未閱讀</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="closeReaderModal()" class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 dark:text-stone-400 transition-colors">
+                    <button onclick="closeReaderModal()" class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-slate-800 text-stone-500 dark:text-stone-400 transition-colors">
                         <i class="fa-solid fa-xmark text-xl"></i>
                     </button>
                 </div>
@@ -280,9 +303,9 @@
             <div class="p-6 sm:p-10 flex-grow overflow-y-auto">
                 <h1 id="modal-title" class="text-2xl sm:text-4xl font-bold font-serif-tc text-stone-900 dark:text-white leading-tight mb-4">文章標題</h1>
                 
-                <div class="flex items-center gap-4 text-xs sm:text-sm text-stone-500 dark:text-stone-400 mb-8 pb-6 border-b border-stone-200 dark:border-stone-800">
+                <div class="flex items-center gap-4 text-xs sm:text-sm text-stone-500 dark:text-stone-400 mb-8 pb-6 border-b border-stone-200 dark:border-slate-800">
                     <div class="flex items-center gap-2">
-                        <img id="modal-author-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="w-8 h-8 rounded-full object-cover" alt="Author">
+                        <img id="modal-author-avatar" src="" class="w-8 h-8 rounded-full object-cover" alt="Author">
                         <span id="modal-author-name" class="font-medium text-stone-700 dark:text-stone-300">作者名稱</span>
                     </div>
                     <span>•</span>
@@ -300,7 +323,7 @@
                 </div>
 
                 <!-- Tags -->
-                <div class="mt-10 pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-wrap gap-2" id="modal-tags">
+                <div class="mt-10 pt-6 border-t border-stone-200 dark:border-slate-800 flex flex-wrap gap-2" id="modal-tags">
                     <!-- Tags dynamic -->
                 </div>
             </div>
@@ -313,8 +336,8 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div class="space-y-4 md:col-span-2">
                     <a href="#" class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-2xl to-indigo-400 flex items-center justify-center text-white">
-                                <img src="image3/logo-white2.svg" alt="Image description" width="1200" height="1000" class="w-full h-full object-contain">
+                        <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-softblue-600 to-sky-400 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-compass text-lg"></i>
                         </div>
                         <span class="text-lg font-bold tracking-tight text-white">Shall We Go | 陪你走</span>
                     </a>
@@ -326,11 +349,11 @@
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold text-white uppercase tracking-wider">快速連結</h4>
                     <ul class="space-y-2 text-xs text-slate-400">
-                        <li><a href="https://shallwego-hk.github.io/Life/Revamp/official.html#about" class="hover:text-softblue-300 transition-colors">關於我們</a></li>
-                        <li><a href="https://shallwego-hk.github.io/Life/Revamp/official.html#programs" class="hover:text-softblue-300 transition-colors">核心服務</a></li>
-                        <li><a href="https://shallwego-hk.github.io/Life/Revamp/official.html#stories" class="hover:text-softblue-300 transition-colors">服務迴響</a></li>
-                        <li><a href="https://shallwego-hk.github.io/Life/Revamp/official.html#faq" class="hover:text-softblue-300 transition-colors">常見問題</a></li>
-                        <li><a href="https://" class="hover:text-softblue-300 transition-colors">生涯隨筆</a></li>
+                        <li><a href="#about" class="hover:text-softblue-300 transition-colors">關於我們</a></li>
+                        <li><a href="#programs" class="hover:text-softblue-300 transition-colors">核心服務</a></li>
+                        <li><a href="#stories" class="hover:text-softblue-300 transition-colors">服務迴響</a></li>
+                        <li><a href="#faq" class="hover:text-softblue-300 transition-colors">常見問題</a></li>
+                        <li><a href="#blog" class="hover:text-softblue-300 transition-colors">生涯隨筆</a></li>
                         <li><a href="https://shallwego-hk.github.io/Forum/onlineforum.html" class="hover:text-softblue-300 transition-colors">同路人討論區</a></li>
                     </ul>
                 </div>
@@ -351,8 +374,8 @@
     </footer>
 
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm font-medium transform translate-y-20 opacity-0 transition-all duration-300">
-        <i id="toast-icon" class="fa-solid fa-check-circle text-brand-500"></i>
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm font-medium transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-sky-400 dark:text-sky-600"></i>
         <span id="toast-msg">提示訊息</span>
     </div>
 
@@ -363,7 +386,7 @@
             {
                 id: '1',
                 title: '京都深秋漫步：隱匿於山林間的古寺與抹茶茶室',
-                category: '熱門景點',
+                category: '熱門時事',
                 author: 'Alex Travel',
                 authorAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80',
                 date: '2026-08-20',
@@ -384,7 +407,7 @@
             {
                 id: '2',
                 title: '冰島環島日記：追尋瓦特納冰川與夜空中閃爍的歐若拉',
-                category: '熱門景點',
+                category: '熱門時事',
                 author: 'Elena Vance',
                 authorAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80',
                 date: '2026-08-15',
@@ -404,7 +427,7 @@
             {
                 id: '3',
                 title: '清邁數位遊牧指南：5間適合沉浸工作的隱藏版咖啡館',
-                category: '美食地圖',
+                category: '實用知識',
                 author: 'Alex Travel',
                 authorAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80',
                 date: '2026-08-10',
@@ -446,6 +469,51 @@
         let currentSort = 'newest';
         let readHistory = {};
 
+        // Theme Switcher Implementation
+        function updateThemeUI(isDark) {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const mobileThemeIcon = document.getElementById('mobileThemeIcon');
+
+            if (isDark) {
+                html.classList.add('dark');
+                if (themeIcon) themeIcon.className = 'fa-solid fa-sun text-base';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fa-solid fa-sun text-base';
+            } else {
+                html.classList.remove('dark');
+                if (themeIcon) themeIcon.className = 'fa-regular fa-moon text-base';
+                if (mobileThemeIcon) mobileThemeIcon.className = 'fa-regular fa-moon text-base';
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = !document.documentElement.classList.contains('dark');
+            updateThemeUI(isDark);
+            localStorage.setItem('shall_we_go_theme', isDark ? 'dark' : 'light');
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('shall_we_go_theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+            updateThemeUI(isDark);
+        }
+
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            if (!toast || !toastMsg) return;
+
+            toastMsg.innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
         function loadReadHistory() {
             try {
                 readHistory = JSON.parse(localStorage.getItem('shall_we_go_read_history') || '{}');
@@ -481,28 +549,18 @@
             const year = d.getFullYear();
             const month = String(d.getMonth() + 1).padStart(2, '0');
             const date = String(d.getDate()).padStart(2, '0');
-            const hours = String(d.getHours()).padStart(2, '0');
-            const mins = String(d.getMinutes()).padStart(2, '0');
-            return `${year}/${month}/${date} ${hours}:${mins} 閱讀`;
+            return `${year}/${month}/${date} 閱讀`;
         }
 
-        // Initialize Data
-        function initData() {
-            loadReadHistory();
-            renderCategoryPills();
-            renderPosts();
-        }
-
-        // Rendering Functions
         function renderCategoryPills() {
-            const categories = ['All', '熱門景點', '美食地圖', '生活隨筆'];
+            const categories = ['All', '熱門時事', '實用知識', '生活隨筆'];
             const container = document.getElementById('category-pills');
             
             container.innerHTML = categories.map(cat => {
                 const isActive = (cat === currentCategory);
                 const label = cat === 'All' ? '全部網誌' : cat;
                 return `
-                    <button onclick="filterCategory('${cat}')" class="px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+                    <button onclick="filterCategory('${cat}')" class="px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                         isActive 
                         ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20' 
                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700'
@@ -555,7 +613,7 @@
                 return `
                     <article class="bg-white dark:bg-slate-800/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/70 dark:border-slate-800 flex flex-col group cursor-pointer" onclick="openReaderModal('${post.id}')">
                         <!-- Image & Category -->
-                        <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+                        <div class="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-900">
                             <img src="${post.cover}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                             <div class="absolute top-4 left-4">
                                 <span class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md text-slate-800 dark:text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
@@ -601,12 +659,11 @@
             }).join('');
         }
 
-        // Reader Modal
+        // Reader Modal Functions
         function openReaderModal(id) {
             const post = posts.find(p => p.id === id);
             if (!post) return;
 
-            // Mark post as read
             markAsRead(id);
 
             document.getElementById('modal-title').innerText = post.title;
@@ -617,7 +674,6 @@
             document.getElementById('modal-date').innerText = post.date;
             document.getElementById('modal-cover').src = post.cover;
 
-            // Content formatting
             const paragraphs = post.content.split('\n\n').map(p => {
                 if (p.startsWith('**') && p.endsWith('**')) {
                     return `<h4 class="font-bold text-stone-900 dark:text-white mt-4 mb-2">${p.replace(/\*\*/g, '')}</h4>`;
@@ -626,12 +682,10 @@
             }).join('');
             document.getElementById('modal-content').innerHTML = paragraphs;
 
-            // Tags
             document.getElementById('modal-tags').innerHTML = (post.tags || []).map(t => `
-                <span class="bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs px-3 py-1 rounded-full font-medium"># ${t}</span>
+                <span class="bg-stone-100 dark:bg-slate-800 text-stone-600 dark:text-stone-300 text-xs px-3 py-1 rounded-full font-medium"># ${t}</span>
             `).join('');
 
-            // Show Modal
             const modal = document.getElementById('reader-modal');
             modal.classList.remove('hidden');
             setTimeout(() => {
@@ -640,7 +694,6 @@
             }, 10);
             document.body.style.overflow = 'hidden';
 
-            // Refresh cards in background so timestamp updates
             renderPosts();
         }
 
@@ -654,7 +707,7 @@
             }, 300);
         }
 
-        // Filters & Search
+        // Search & Filters
         function filterCategory(cat) {
             currentCategory = cat;
             renderCategoryPills();
@@ -691,35 +744,36 @@
             renderPosts();
         }
 
-        // Theme Toggle (Dark / Light)
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('theme-icon');
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                icon.className = 'fa-solid fa-moon text-lg';
-                localStorage.setItem('shall_we_go_theme', 'light');
-            } else {
-                html.classList.add('dark');
-                icon.className = 'fa-solid fa-sun text-lg text-amber-400';
-                localStorage.setItem('shall_we_go_theme', 'dark');
-            }
-        }
-
-        function loadTheme() {
-            const savedTheme = localStorage.getItem('shall_we_go_theme');
-            const icon = document.getElementById('theme-icon');
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-                if (icon) icon.className = 'fa-solid fa-sun text-lg text-amber-400';
-            }
-        }
-
-        // Global Initialization
-        window.onload = function() {
+        // Global Initialization and Event Binding
+        window.addEventListener('DOMContentLoaded', () => {
             loadTheme();
-            initData();
-        };
+            loadReadHistory();
+            renderCategoryPills();
+            renderPosts();
+
+            // Bind Dark Mode Buttons
+            const desktopThemeBtn = document.getElementById('themeToggleBtn');
+            const mobileThemeBtn = document.getElementById('mobileThemeToggleBtn');
+            
+            if (desktopThemeBtn) desktopThemeBtn.addEventListener('click', toggleTheme);
+            if (mobileThemeBtn) mobileThemeBtn.addEventListener('click', toggleTheme);
+
+            // Bind Mobile Menu Button
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeReaderModal();
+                }
+            });
+        });
     </script>
 </body>
 </html>
